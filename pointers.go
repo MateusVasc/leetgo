@@ -18,6 +18,14 @@ type User2 struct {
 	Scores []int
 }
 
+type Counter struct {
+	Value int
+}
+
+func (c *Counter) Increment() {
+	c.Value++
+}
+
 func main() {
 	fmt.Println("Hello")
 
@@ -33,6 +41,11 @@ func main() {
 	u3 := u2
 	u3.Scores[0] = 999
 	fmt.Println(u2.Scores)
+
+	fmt.Println("Mais exemplos")
+	c := Counter{}
+	c.Increment()
+	fmt.Println(c)
 }
 
 /*
