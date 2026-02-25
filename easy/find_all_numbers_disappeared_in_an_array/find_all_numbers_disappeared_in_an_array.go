@@ -1,21 +1,21 @@
 package findallnumbersdisappearedinanarray
 
 func findDisappearedNumbers(nums []int) []int {
-	s := len(nums)
-	isIn := false
-	sl := []int{}
-
-	for i := range s {
-		isIn = false
-		i += 1
-		for _, v := range nums {
-			if i == v {
-				isIn = true
-			}
+	for _, v := range nums {
+		if v < 0 {
+			v = -v
 		}
 
-		if !isIn {
-			sl = append(sl, i)
+		if nums[v-1] > 0 {
+			nums[v-1] = -nums[v-1]
+		}
+	}
+
+	sl := []int{}
+
+	for i, v := range nums {
+		if v > 0 {
+			sl = append(sl, i+1)
 		}
 	}
 
